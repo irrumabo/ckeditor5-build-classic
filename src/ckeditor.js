@@ -12,8 +12,8 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
-import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+// import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
+// import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
@@ -29,19 +29,23 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+
+// import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
-	Essentials,
-	UploadAdapter,
+	// Alignment,
+	// CKFinder,
+	// EasyImage,
 	Autoformat,
-	Bold,
-	Italic,
 	BlockQuote,
-	CKFinder,
-	EasyImage,
+	Bold,
+	Essentials,
 	Heading,
 	Image,
 	ImageCaption,
@@ -49,14 +53,19 @@ ClassicEditor.builtinPlugins = [
 	ImageToolbar,
 	ImageUpload,
 	Indent,
+	Italic,
 	Link,
 	List,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
+	SimpleUploadAdapter,
 	Table,
+	TableCellProperties,
+	TableProperties,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	UploadAdapter
 ];
 
 // Editor configuration.
@@ -73,6 +82,7 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'indent',
 			'outdent',
+			// 'alignment',
 			'|',
 			'imageUpload',
 			'blockQuote',
@@ -92,11 +102,10 @@ ClassicEditor.defaultConfig = {
 	},
 	table: {
 		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
+			'tableColumn', 'tableRow', 'mergeTableCells',
+			'tableProperties', 'tableCellProperties'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'ru'
 };
